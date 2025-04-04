@@ -1,0 +1,31 @@
+- name: Get Ubuntu System Parameters
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Display Hostname
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Display OS Version
+      debug:
+        msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }})"
+
+    - name: Display Kernel Version
+      debug:
+        msg: "Kernel: {{ ansible_kernel }}"
+
+    - name: Display CPU Information
+      debug:
+        msg: "CPU Model: {{ ansible_processor[1] }}, Cores: {{ ansible_processor_cores }}"
+
+    - name: Display Memory Information
+      debug:
+        msg: "Total Memory: {{ ansible_memtotal_mb }} MB"
+
+    - name: Display Disk Space
+      debug:
+        msg: "Root Disk Size: {{ ansible_mounts | selectattr('mount', 'equalto', '/') | map(attribute='size_total') | first | int / 1024 / 1024 / 1024 }} GB"
+
+    - name: Display Network Interfaces
+      debug:
+        msg: "IP Address: {{ ansible_default_ipv4.address }}"
