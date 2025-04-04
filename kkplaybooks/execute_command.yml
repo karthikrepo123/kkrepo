@@ -1,0 +1,6 @@
+- name: Execute a command on remote hosts
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run uptime command
+      command: uptime
