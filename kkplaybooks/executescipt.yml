@@ -5,7 +5,7 @@
 
     - name: Download the Shell Script from GitHub
       get_url:
-        url: "https://github.com/karthikrepo123/kkrepo.git/main/kkscript.sh"
+        url: "https://github.com/karthikrepo123/kkrepo.git/kkscript.sh"
         dest: "/tmp/kkscript.sh"
         mode: '0755'
 
