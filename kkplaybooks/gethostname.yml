@@ -1,0 +1,7 @@
+- name: Display Hostname of Inventory Servers
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Get Hostname
+      debug:
+        msg: "The hostname is {{ ansible_hostname }}"
