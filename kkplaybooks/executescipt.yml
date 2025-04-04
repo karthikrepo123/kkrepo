@@ -15,7 +15,7 @@
         chdir: "/tmp"
         creates: "/tmp/kkscript.sh"
         register: script_output
-        ignore_errors: yes  # Optional: Continue playbook execution if script fails
+        
 
     - name: Display the Output of the Script Execution
       debug:
