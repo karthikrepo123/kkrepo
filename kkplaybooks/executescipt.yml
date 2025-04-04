@@ -1,0 +1,21 @@
+- name: Download and Execute Shell Script from GitHub
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Download the Shell Script from GitHub
+      get_url:
+        url: "https://github.com/karthikrepo123/kkrepo.git/main/kkscript.sh"
+        dest: "/tmp/kkscript.sh"
+        mode: '0755'
+
+    - name: Execute the Shell Script
+      shell: "/tmp/kk.sh"
+      args:
+        chdir: "/tmp"
+        creates: "/tmp/kk.sh"
+
+    - name: Clean up the Shell Script (optional)
+      file:
+        path: "/tmp/kk.sh"
+        state: absent
