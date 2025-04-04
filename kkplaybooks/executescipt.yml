@@ -10,12 +10,12 @@
         mode: '0755'
 
     - name: Execute the Shell Script
-      shell: "/tmp/kk.sh"
+      shell: "/tmp/kkscript.sh"
       args:
         chdir: "/tmp"
-        creates: "/tmp/kk.sh"
+        creates: "/tmp/kkscript.sh"
 
     - name: Clean up the Shell Script (optional)
       file:
-        path: "/tmp/kk.sh"
+        path: "/tmp/kkscript.sh"
         state: absent
